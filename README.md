@@ -1,6 +1,17 @@
 # Example for AMGT-TS
 
-<https://github.com/plantdna/amgt-ts>
+My notes running the supplied examples for AMGT-TS within a conda environment.
+
+ * <https://github.com/plantdna/amgt-ts>
+ * <https://doi.org/10.1186/s12859-021-04351-w>
+
+Example:
+
+    conda env update --file environment.yml
+    conda activate example-amgt-ts
+    mkdir -p project
+    cp -ru amgt-ts/working project
+    ./amgt-ts/amgt-ts.sh --project=project --script=amgt-ts --environment=profile.sh --method=broad
 
 Things to note:
 
@@ -8,11 +19,28 @@ Things to note:
    script; it exports the environment variables that define the configuration
    AMGT-TS uses.  (Note that `SCRIPT_PATH` and optionally `BASE_DIR` will have
    already been set in the main script when this gets sourced.)
- * The example data provided in the web version is
-   <https://plantdna.github.io/data/sample15.fq> but is also right here in the
-   `PROJECT_DIR` already.
- * Reference stats file is TSV.
+ * `BASE_DIR` defaults to an undefined variable equivalent to an empty string
+   rather than `.` so you probably *do* want to specify it via `--project` so
+   as not to get permission errors trying to write to the root directory.
+ * The PICARD variable must point directly to the picard.jar file, not a picard
+   wrapper script (as comes with bioconda's packages, for example).
+ * Steps 02 and 03 are only relevant for the precise method so they don't show
+   up in the output when using the broad method.  01 and 04 are present for
+   both precise and broad methods.
+ * The input and output "stats" file are TSV.
+ * The internal python scripts require pandas.
 
-Example:
+Things I don't yet understand:
 
-    ./amgt-ts/amgt-ts.sh amgt-ts profile.sh broad
+ * What is the library prep method?  Are the reads fragmented with a particular
+   target size, or left as full-length from PCR?  (The former seems implicit
+   but I'm not sure.)
+ * Where is the step to define the final genotypes, like shown in the pairs of
+   alleles for the diploid parent/offspring trio in [Figure 5]?
+ * Why use the "SSRn" groupings as genotypes rather than the full sequence
+   content observed?  (For example sample15 s282049's results are almost
+   entirely SSR18, but these reads split into two groups, roughly 50:50, with
+   different SNPs in both flanking regions and a deletion in the right flank for
+   one of them.  Is this a heterozygous individual from that perspective?)
+
+[Figure 5]: https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-021-04351-w/figures/5
