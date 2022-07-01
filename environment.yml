@@ -1,0 +1,16 @@
+# conda environment file for AMGT-TS
+name: example-amgt-ts
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  # 2.5.0 not available from bioconda
+  - bamtools=2.5
+  - blast>=2.6.0
+  - bwa=0.7.17
+  # 0.0.13 not available from bioconda
+  - fastx_toolkit=0.0.14
+  - picard=2.15.0
+  - samtools=1.3.1
+  - seqtk=1.2

@@ -1,0 +1,3 @@
+[submodule "amgt-ts"]
+	path = amgt-ts
+	url = https://github.com/plantdna/amgt-ts.git
