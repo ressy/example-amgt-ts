@@ -6,7 +6,7 @@ export TMP_DIR=$BASE_DIR/tmp
 
 export FORMAT=fq
 
-export PICARD=$(which picard) # will this work or is picard.jar needed?
+export PICARD=$(readlink -f $(which picard)).jar
 export BWA=$(which bwa)
 export SAMTOOLS=$(which samtools)
 export BAMTOOLS=$(which bamtools)
