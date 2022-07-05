@@ -1,0 +1,10 @@
+# conda environment file for prepping chimp files (versions conflict between
+# this and AMGT-TS env)
+name: example-amgt-ts-chimps
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - sra-tools
+  - cutadapt

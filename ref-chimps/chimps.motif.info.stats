@@ -1,0 +1,9 @@
+#ID	SSR.No	Motif_len	Motif	Repeat_times	Start	End	Repeat_len	Seq_len
+sLocusA	1	4	TAGA	14	72	127	56	181
+sLocusB	1	4	TAGA	19	61	137	76	239
+sLocusC	1	4	TAGA	14	113	168	56	197
+sLocusD	1	4	TATC	23	107	199	92	305
+sLocus1	1	4	TATC	28	86	198	112	270
+sLocus2	1	4	TCCA	10	107	146	40	338
+sLocus3	1	4	TAGA	27	74	186	108	246
+sLocus4	1	4	TTCA	11	93	136	44	295

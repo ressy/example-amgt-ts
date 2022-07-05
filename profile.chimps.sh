@@ -1,0 +1,34 @@
+# !/bin/bash
+# Similar to the AMGT-TS example configuration profile, just with a different
+# reference
+export SCRIPT_DIR=$SCRIPT_PATH
+export PROJECT_DIR=$BASE_DIR/working
+export TMP_DIR=$BASE_DIR/tmp
+
+export FORMAT=fq
+
+export PICARD=$(readlink -f $(which picard)).jar
+export BWA=$(which bwa)
+export SAMTOOLS=$(which samtools)
+export BAMTOOLS=$(which bamtools)
+export SEQTK=$(which seqtk)
+
+# fastx
+export FASTX_DIR=$(dirname $(which fastq_quality_filter))
+
+# blast
+export BLAST_BIN=$(dirname $(which blastn))
+
+export REF_FILE=ref-chimps/chimps.amplicon.fa
+export POS_FILE=ref-chimps/chimps.motif.info.stats
+
+# parameters
+export THREADS=2
+export CPU_CORES=2
+export MIN_QUALITY_SCORE=20
+
+# references processing
+export FLANK_LENGTH=20
+
+# SSR typing
+export MIN_BASES_PERCENT=80
